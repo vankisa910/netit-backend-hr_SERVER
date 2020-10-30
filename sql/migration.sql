@@ -14,20 +14,21 @@ CREATE TABLE hr.tb_users (
 SELECT * FROM hr.tb_users ;
 
 CREATE TABLE hr.tm_roles (
-    role_id    INTEGER AUTO_INCREMENT PRIMARY KEY,
-    role_title VARCHAR(256) NOT NULL
+    id    INTEGER AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(256) NOT NULL
 );
 SELECT * FROM hr.tm_roles ;
 
-INSERT INTO hr.tm_roles(role_title) VALUES('EMPLOYEE');
-INSERT INTO hr.tm_roles(role_title) VALUES('EMPLOYER');
-INSERT INTO hr.tm_roles(role_title) VALUES('HR'	);
+INSERT INTO hr.tm_roles(title) VALUES('EMPLOYEE');
+INSERT INTO hr.tm_roles(title) VALUES('EMPLOYER');
+INSERT INTO hr.tm_roles(title) VALUES('HR'	);
 
 CREATE TABLE hr.tb_users__roles (
     user_id INTEGER,
     role_id INTEGER,
     PRIMARY KEY(user_id, role_id)
 );
+SELECT * FROM hr.tb_users__roles ;
 
 CREATE TABLE hr.tb_ad_post (
     id              INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -57,8 +58,13 @@ CREATE TABLE hr.tb_ad_post__category(
 );
 
 CREATE TABLE hr.tm_company (
-    id    INTEGER AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(256) NOT NULL
+    id      INTEGER AUTO_INCREMENT PRIMARY KEY,
+    title   VARCHAR(256) NOT NULL
+--     country VARCHAR(256) NOT NULL,  
+--     website VARCHAR(256) NOT NULL,   
+--     phone   VARCHAR(256) NOT NULL, 
+--     address VARCHAR(256) NOT NULL,  
+--     aboutus VARCHAR(4000) NOT NULL
 );
 
 INSERT INTO hr.tm_company(title) VALUES('SGS');
@@ -66,10 +72,13 @@ INSERT INTO hr.tm_company(title) VALUES('Alianz');
 INSERT INTO hr.tm_company(title) VALUES('Wizz Air');
 INSERT INTO hr.tm_company(title) VALUES('Framar');
 INSERT INTO hr.tm_company(title) VALUES('VGI Properties');
+INSERT INTO hr.tm_company(title) VALUES('Electronic Parts');
+INSERT INTO hr.tm_company(title) VALUES('ISGB');
+INSERT INTO hr.tm_company(title) VALUES('Nielsen');
 
 CREATE TABLE hr.tb_ad_post__company(
     post_id      INTEGER,
-    company_id INTEGER,
+    company_id   INTEGER,
     PRIMARY KEY(post_id, company_id)
 );
 
