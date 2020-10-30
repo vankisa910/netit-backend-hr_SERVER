@@ -6,8 +6,8 @@ function get_category_all() {
     return Response::ok(array('data' => $categoryCollection));
 }
 
-function get_category_single($categoryId) {
+function get_category_single($id) {
     
-    $categorySingle = Category::get($categoryId);
+    $categorySingle = Category::get($id);
     return Response::ok(array('data' => $categorySingle));
 }

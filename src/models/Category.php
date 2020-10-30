@@ -6,10 +6,10 @@ class Category {
         return Database::select('tm_category')::build();
     }
     
-    public static function get($categoryId) {
+    public static function get($id) {
         
         return Database::select('tm_category')
-                       ::where(array('id' => $categoryId))
+                       ::where(array('id' => $id))
                        ::buildSingle();        
     }
 }
