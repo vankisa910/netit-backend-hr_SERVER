@@ -20,10 +20,10 @@ class User {
         Database::insert(self::$table,$parameterCollection);
     }
     
-    static function assignRoleToUser($userid, $roleId) {
+    static function assignRoleToUser($userId, $roleId) {
 
         return Database::insert(self::$tableRoles, array(
-            'user_id' => $userid,
+            'user_id' => $userId,
             'role_id' => $roleId
         ));
     }
