@@ -16,7 +16,7 @@ include('./src/util/Request.php');
 include('./src/util/Response.php');
 include('./src/util/Router.php');
 include('./src/util/Pagination.php');
-include('./src/config/routes.php');
+include('./config/routes.php');
 
 
  Router::bootstrap();
