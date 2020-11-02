@@ -3,7 +3,8 @@
 class Category {
     
     public static function getAll() {
-        return Database::select('tm_category')::build();
+        return Database::select('tm_category')
+                       ::build();
     }
     
     public static function get($id) {

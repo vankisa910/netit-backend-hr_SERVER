@@ -1,6 +1,6 @@
 <?php
 
-function requestActionMapping() {
+function getRequestActionMapping() {
     
     return array(
         'category' => 'category_manager',
@@ -8,7 +8,7 @@ function requestActionMapping() {
     );
 }
 
-function requestEndpointMapping() {
+function getRequestEndpointMapping() {
     
     return array (
       

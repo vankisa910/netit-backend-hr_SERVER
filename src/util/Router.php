@@ -6,19 +6,19 @@ class Router {
 
     public static function bootstrap() {
 
-        $requestUrlPathInfo          = isset($_SERVER['REDIRECT URL'])? $_SERVER['REDIRECT URL'] : '/' ;
-        $requestMethod               = $_SERVER['REQUEST METHOD']; 
+        $requestUrlPathInfo          = isset($_SERVER['REDIRECT_URL'])? $_SERVER['REDIRECT_URL'] : '/' ;
+        $requestMethod               = $_SERVER['REQUEST_METHOD']; 
         $requestActionFileCollection = explode('/', $requestUrlPathInfo);
         
         array_shift($requestActionFileCollection);
         array_shift($requestActionFileCollection);
         
         $requestAction       = $requestActionFileCollection[0];
-        $requestActionFile   = self::requestActionMapping($requestAction);
+        $requestActionFile   = self::getRequestActionMapping($requestAction);
         
         include './src/api/' . $requestActionFile . 'php';
         
-        $functionExecutor = self::requestEndpointMapping($requestActionFileCollection, $requestMethod);
+        $functionExecutor = self::getRequestEndpointMapping($requestActionFileCollection, $requestMethod);
         
         if(is_null($functionExecutor)) {
             return Response::notFound(array('message' => 'No such mapping found!'));
@@ -34,13 +34,13 @@ class Router {
         call_user_func_array($functionExecutor, self::placeholderValueCollection());
     }
          
-   private static function requestActionMapping($requestAction) {
+   private static function getRequestActionMapping($requestAction) {
         
         $requestActionMapping = getRequestActionMapping();
         return (array_key_exists($requestAction, $requestActionMapping)) ? $requestActionMapping($requestAction) : $requestAction;
     }
     
-   private static function requestEndpointMapping($requestEndpoint, $requestMethod) {
+   private static function getRequestEndpointMapping($requestEndpoint, $requestMethod) {
        
        $requestEndpointMapping = getRequestEndpointMapping();
        
@@ -59,7 +59,6 @@ class Router {
                return $execute;
            }
        }
-       
        return null;
    }
    

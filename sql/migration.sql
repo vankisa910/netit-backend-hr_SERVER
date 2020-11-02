@@ -98,11 +98,6 @@ SELECT * FROM hr.tb_ad_post__category ;
 CREATE TABLE hr.tm_company (
     id      INTEGER AUTO_INCREMENT PRIMARY KEY,
     title   VARCHAR(256) NOT NULL
---     country VARCHAR(256) NOT NULL,  
---     website VARCHAR(256) NOT NULL,   
---     phone   VARCHAR(256) NOT NULL, 
---     address VARCHAR(256) NOT NULL,  
---     aboutus VARCHAR(4000) NOT NULL
 );
 
 INSERT INTO hr.tm_company(title) VALUES('SGS');
