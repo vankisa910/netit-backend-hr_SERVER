@@ -6,9 +6,9 @@ class Router {
 
     public static function bootstrap() {
 
-        $requestUrlPathInfo          = isset($_SERVER['REDIRECT_URL'])? $_SERVER['REDIRECT_URL'] : '/' ;
+        $requestUrlPathInfo          = isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : '/' ;
         $requestMethod               = $_SERVER['REQUEST_METHOD']; 
-        $requestActionFileCollection = explode('/', $requestUrlPathInfo);
+        $requestActionFileCollection = explode("/", $requestUrlPathInfo);
         
         array_shift($requestActionFileCollection);
         array_shift($requestActionFileCollection);
@@ -16,7 +16,7 @@ class Router {
         $requestAction       = $requestActionFileCollection[0];
         $requestActionFile   = self::getRequestActionMapping($requestAction);
         
-        include './src/api/' . $requestActionFile . 'php';
+        include './src/api/' . $requestActionFile . '.php';
         
         $functionExecutor = self::getRequestEndpointMapping($requestActionFileCollection, $requestMethod);
         
@@ -46,7 +46,7 @@ class Router {
        
        foreach($requestEndpointMapping as $endpointCollection) {
            
-           $endpoint = explode('/', $endpointCollection['endpoint']);
+           $endpoint = explode("/", $endpointCollection['endpoint']);
            $method   = $endpointCollection['method'];
            $execute  = $endpointCollection['execute'];
            
