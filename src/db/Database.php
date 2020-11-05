@@ -32,7 +32,7 @@ class Database {
         return $databaseResult;        
     }
     
-    public static function getLastInsertedId() {
+    static function getLastInsertedId() {
         return mysqli_insert_id(Database::dbConnect());
     }
     
